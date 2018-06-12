@@ -212,8 +212,37 @@ public class Warmup1 {
         return str;
     }
 
+    /*
+        Return true if the given string begins with "mix",
+        except the 'm' can be anything, so "pix", "9ix" .. all count.
+     */
+    public boolean mixStart(String str) {
+        if (str.length() < 3) return false;
+        String two = str.substring(1, 3);
+        return two.equals("ix");
+    }
 
+    /*
+        Given a string, return a string made of the first 2 chars (if present),
+        however include first char only if it is 'o' and include the second only if it is 'z',
+        so "ozymandias" yields "oz".
+    */
+    public String startOz(String str) {
+        String s = "";
+        if (str.length() >= 1 && str.charAt(0) == 'o')
+            s += str.charAt(0);
+        if (str.length() >= 2 && str.charAt(1) == 'z')
+            s += str.charAt(1);
+        return s;
+    }
 
-
+    /*
+        Given three int values, a b c, return the largest.
+    */
+    public int intMax(int a, int b, int c) {
+        if (a > b && a > c) return a;
+        if (b > c) return b;
+        return c;
+    }
 
 }

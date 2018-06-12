@@ -161,4 +161,25 @@ public class Warmup1Test {
         assertEquals("aHello", warmup.delDel("adelHello"));
         assertEquals("adedbc", warmup.delDel("adedbc"));
     }
+
+    @Test
+    public void mixStart() {
+        assertTrue(warmup.mixStart("mix snacks"));
+        assertTrue(warmup.mixStart("pix snacks"));
+        assertFalse(warmup.mixStart("piz snacks"));
+    }
+
+    @Test
+    public void startOz() {
+        assertEquals("oz", warmup.startOz("ozymandias"));
+        assertEquals("z", warmup.startOz("bzoo"));
+        assertEquals("o", warmup.startOz("oxx"));
+    }
+
+    @Test
+    public void intMax() {
+        assertEquals(3, warmup.intMax(1, 2, 3));
+        assertEquals(3, warmup.intMax(1, 3, 2));
+        assertEquals(3, warmup.intMax(3, 2, 1));
+    }
 }
