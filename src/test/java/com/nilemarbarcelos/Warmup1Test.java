@@ -182,4 +182,54 @@ public class Warmup1Test {
         assertEquals(3, warmup.intMax(1, 3, 2));
         assertEquals(3, warmup.intMax(3, 2, 1));
     }
+
+    @Test
+    public void close10() {
+        assertEquals(8, warmup.close10(8, 13));
+        assertEquals(8, warmup.close10(13, 8));
+        assertEquals(0, warmup.close10(13, 7));
+    }
+
+    @Test
+    public void in3050() {
+        assertTrue(warmup.in3050(30, 31));
+        assertFalse(warmup.in3050(30, 41));
+        assertTrue(warmup.in3050(40, 50));
+    }
+
+    @Test
+    public void max1020() {
+        assertEquals(19, warmup.max1020(11, 19));
+        assertEquals(19, warmup.max1020(19, 11));
+        assertEquals(11, warmup.max1020(11, 9));
+    }
+
+    @Test
+    public void stringE() {
+        assertTrue(warmup.stringE("Hello"));
+        assertTrue(warmup.stringE("Heelle"));
+        assertFalse(warmup.stringE("Heelele"));
+    }
+
+    @Test
+    public void lastDigit() {
+        assertTrue(warmup.lastDigit(7, 17));
+        assertFalse(warmup.lastDigit(6, 17));
+        assertTrue(warmup.lastDigit(3, 113));
+    }
+
+    @Test
+    public void endUp() {
+        assertEquals("HeLLO", warmup.endUp("Hello"));
+        assertEquals("hi thERE", warmup.endUp("hi there"));
+        assertEquals("HI", warmup.endUp("hi"));
+    }
+
+    @Test
+    public void everyNth() {
+        assertEquals("Mrce", warmup.everyNth("Miracle", 2));
+        assertEquals("aceg", warmup.everyNth("abcdefg", 2));
+        assertEquals("adg", warmup.everyNth("abcdefg", 3));
+    }
+
 }
